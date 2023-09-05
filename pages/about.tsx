@@ -5,6 +5,7 @@ import { RootState } from '@/reducers'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Box, Typography } from '@mui/material'
 // import dynamic from 'next/dynamic'
 
 // const Header = dynamic(() => import('@/components/common/header'), { ssr: false })
@@ -32,11 +33,19 @@ export default function AboutPage(props: AboutPageProps) {
 		dispatch(toggleSidebar())
 	}
 	const isOpen = useSelector((state: RootState) => state?.sidebar?.isOpen)
+	if (router.isFallback) {
+		return <div style={{ fontSize: '2rem', textAlign: 'center' }}>Loading...</div>
+	}
 	console.log(isOpen)
 	return (
 		<>
 			{isOpen ? 'test' : 'k test'}
-			<h1>About Page</h1>
+			<Box>
+				<h1></h1>
+				<Typography component="h1" variant="h3" color="primary.main">
+					About Page
+				</Typography>
+			</Box>
 			<div onClick={handleToggleSidebar}>click</div>
 			<Header />
 		</>
