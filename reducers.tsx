@@ -1,5 +1,5 @@
-import sidebarReducer from 'reducers/toggleSidebarReducers'
 import { combineReducers } from 'redux'
+import sidebarReducer from './reducers/toggleSidebarReducers'
 
 const rootReducer = combineReducers({
 	sidebar: sidebarReducer,
